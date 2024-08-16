@@ -2,10 +2,6 @@
   flex: 1;
 }
 
-.bg-dark {
-  background-color: #12002b;
-}
-
 .hero {
   background-image: url("/src/assets/img/bank-tree.jpeg");
   background-position: 0 -50px;
