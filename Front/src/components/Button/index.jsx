@@ -1,3 +1,10 @@
-export default function Button() {
-  return <div>Button</div>;
-}
+import "./style.css";
+
+const Button = ({ onClick, children, className = "" }) => {
+  return (
+    <button onClick={onClick} className={`${className}`}>
+      {children}
+    </button>
+  );
+};
+export default Button;

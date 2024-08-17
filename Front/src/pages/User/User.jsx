@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import "./style.css";
 
 export default function User() {
@@ -10,7 +11,7 @@ export default function User() {
             <br />
             Tony Jarvis!
           </h1>
-          <button className="edit-button">Edit Name</button>
+          <Button className="edit-button">Edit Name</Button>
         </div>
         <h2 className="sr-only">Accounts</h2>
         <section className="account">
@@ -20,7 +21,7 @@ export default function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button className="transaction-button">View transactions</Button>
           </div>
         </section>
         <section className="account">
@@ -30,7 +31,7 @@ export default function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button className="transaction-button">View transactions</Button>
           </div>
         </section>
         <section className="account">
@@ -40,7 +41,7 @@ export default function User() {
             <p className="account-amount-description">Current Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
+            <Button className="transaction-button">View transactions</Button>
           </div>
         </section>
       </main>

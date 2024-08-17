@@ -1,3 +1,4 @@
+import Button from "../../components/Button";
 import "./style.css";
 
 export default function Login() {
@@ -20,8 +21,7 @@ export default function Login() {
               <input type="checkbox" id="remember-me" />
               <label>Remember me</label>
             </div>
-
-            <button className="sign-in-button">Sign In</button>
+            <Button className="sign-in-button">Sign In</Button>
           </form>
         </section>
       </main>
