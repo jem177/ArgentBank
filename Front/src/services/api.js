@@ -7,7 +7,7 @@ export async function logUser(email, password) {
     },
     body: JSON.stringify({ email, password }),
   });
-  return response.json;
+  return response.json();
 }
 
 //

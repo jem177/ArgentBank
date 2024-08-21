@@ -1,9 +1,33 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loginReducer from "./loginSlice";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage"; // localStorage par défaut
+import loginSlice from "../store/loginSlice";
 
-const store = configureStore({
+const persistConfig = {
+  key: "root",
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, loginSlice.reducer);
+
+export const store = configureStore({
   reducer: {
-    login: loginReducer,
+    login: persistedReducer,
   },
+  // Configuration du middleware pour éviter les avertissements de sérialisation
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [
+          "persist/PERSIST",
+          "persist/REHYDRATE",
+          "persist/PAUSE",
+          "persist/PURGE",
+          "persist/REGISTER",
+          "persist/FLUSH",
+        ],
+      },
+    }),
 });
-export default store;
+
+export const persistor = persistStore(store);

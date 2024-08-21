@@ -11,7 +11,7 @@ export default function User() {
             <br />
             Tony Jarvis!
           </h1>
-          <Button className="edit-button">Edit Name</Button>
+          <Button btnText="Edit Name" className="edit-button" />
         </div>
         <h2 className="sr-only">Accounts</h2>
         <section className="account">
@@ -21,7 +21,10 @@ export default function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <Button className="transaction-button">View transactions</Button>
+            <Button
+              btnText="View transactions"
+              className="transaction-button"
+            />
           </div>
         </section>
         <section className="account">
@@ -31,7 +34,10 @@ export default function User() {
             <p className="account-amount-description">Available Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <Button className="transaction-button">View transactions</Button>
+            <Button
+              btnText="View transactions"
+              className="transaction-button"
+            />
           </div>
         </section>
         <section className="account">
@@ -41,7 +47,10 @@ export default function User() {
             <p className="account-amount-description">Current Balance</p>
           </div>
           <div className="account-content-wrapper cta">
-            <Button className="transaction-button">View transactions</Button>
+            <Button
+              btnText="View transactions"
+              className="transaction-button"
+            />
           </div>
         </section>
       </main>

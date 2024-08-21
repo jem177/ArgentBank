@@ -4,6 +4,7 @@
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  cursor: pointer;
 }
 .account {
   display: flex;
@@ -42,14 +43,6 @@
   flex: 1;
 }
 
-.edit-button {
-  border-color: #00bc77;
-  background-color: #00bc77;
-  color: #fff;
-  font-weight: bold;
-  padding: 10px;
-}
-
 .header {
   color: #fff;
   margin-bottom: 2rem;
@@ -65,6 +58,7 @@
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  cursor: pointer;
 }
 
 @media (min-width: 720px) {

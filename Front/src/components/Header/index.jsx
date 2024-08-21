@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Navigation from "../Navigation";
 
 import logo from "/src/assets/img/argentBankLogo.png";
 import "./style.css";
@@ -15,12 +16,7 @@ export default function Header() {
           />
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
-        <div>
-          <Link className="main-nav-item" to="/login">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </Link>
-        </div>
+        <Navigation />
       </nav>
     </>
   );

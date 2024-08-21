@@ -7,23 +7,19 @@ export const loginSlice = createSlice({
     userProfil: null,
   },
   reducers: {
-    //Action pour connecter l'utilisateur
     loginUser: (state, action) => {
-      state.userToken = action.payload; // Stokera les informations avec dispatch
+      state.userToken = action.payload;
     },
-    // Action pour deconecter l'utilisateur
     logoutUser: (state) => {
-      state.userToken = null; // Remet a zéro les information user
+      state.userToken = null;
       state.userProfil = null;
     },
-    //Action pour stoker les données utilisateur
     infoUser: (state, action) => {
-      state.userProfil = action.payload; // Stokera les informations avec dispatch
+      state.userProfil = action.payload;
     },
-    //Action pour stoker les données utilisateur
     infoUserName: (state, action) => {
       console.log("voici le payload info user Name :", action.payload);
-      state.userProfil.userName = action.payload; // Stokera les informations avec dispatch
+      state.userProfil.userName = action.payload;
     },
   },
 });
