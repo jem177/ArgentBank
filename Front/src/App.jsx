@@ -7,13 +7,13 @@ import User from "./pages/User";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SecurityRoutes from "./SecurityRoutes.jsx";
+import Error from "./pages/Error/index.jsx";
 
 export default function App() {
-  const basename = import.meta.env.MODE === "production" ? "/ArgentBank/" : "/";
   const isLoggedIn = useSelector((state) => state.login.userProfil);
   return (
     <>
-      <BrowserRouter basename={basename}>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -25,6 +25,8 @@ export default function App() {
             <Route path="/user" element={<User />} />
             {/* <Route path="/editUser" element={<EditName />} /> */}
           </Route>
+
+          <Route path="*" element={<Error />} />
         </Routes>
 
         <Footer />

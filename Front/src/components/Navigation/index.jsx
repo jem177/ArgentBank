@@ -1,30 +1,29 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { logoutUser } from "../../store/loginSlice";
-
 import "./style.css";
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  const loginStore = useSelector((state) => state.login);
-  const token = useSelector((state) => state.login.userToken);
+  const { userToken: token, userProfil } = useSelector((state) => state.login);
 
-  const handleRedirectHome = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     dispatch(logoutUser());
   };
+
+  const userName = userProfil?.userName;
+
   return (
-    <div className="login">
-      {loginStore &&
-        loginStore.userProfil &&
-        loginStore.userProfil.userName && (
-          <Link to="/user" className="userName">
-            <i className="fa fa-user-circle"></i>
-            <p>{loginStore.userProfil.userName}</p>
-          </Link>
-        )}
+    <>
+      {userName && (
+        <Link to="/user" className="userName">
+          <i className="fa fa-user-circle"></i>
+          <p>{userName}</p>
+        </Link>
+      )}
       {token ? (
-        <NavLink className="main-nav-item" to="/" onClick={handleRedirectHome}>
+        <NavLink className="main-nav-item" to="/" onClick={handleLogout}>
           Sign Out
         </NavLink>
       ) : (
@@ -33,7 +32,7 @@ const Navigation = () => {
           Sign In
         </NavLink>
       )}
-    </div>
+    </>
   );
 };
 
