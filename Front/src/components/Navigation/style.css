@@ -17,3 +17,13 @@
 .fa-user-circle {
   padding: 10px;
 }
+.userName {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  text-decoration: none;
+}
+.userName:hover {
+  text-decoration: underline;
+}

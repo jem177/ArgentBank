@@ -1,3 +1,14 @@
 .error-section {
-  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #12002b;
+  font-size: 20px;
+}
+.error-text {
+  color: white;
+}
+a {
+  color: white;
 }

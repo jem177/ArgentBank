@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser, infoUser } from "../../store/loginSlice";
-import { logUser, getUserProfile } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
+import { getUserProfile, logUser } from "../../services/api";
+import { infoUser, loginUser } from "../../store/loginSlice";
 
 const SignInForm = () => {
   const [formData, setFormData] = useState({

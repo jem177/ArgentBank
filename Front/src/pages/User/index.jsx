@@ -1,18 +1,33 @@
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import "./style.css";
 
 export default function User() {
+  const username = useSelector((state) => state.login.userProfil.userName);
+  const navigate = useNavigate();
+
+  // Gestion de l'affichage du formulaire pour modifier le username
+  const handleDisplayEdit = (e) => {
+    e.preventDefault();
+    navigate("/editUser");
+  };
+
   return (
     <>
       <main className="main bg-dark">
-        <div className="header">
+        <header className="header">
           <h1>
             Welcome back
             <br />
-            Tony Jarvis!
+            {username}!
           </h1>
-          <Button btnText="Edit Name" className="edit-button" />
-        </div>
+          <Button
+            className="edit-button"
+            btnText="Edit Name"
+            onClick={handleDisplayEdit}
+          />
+        </header>
         <h2 className="sr-only">Accounts</h2>
         <section className="account">
           <div className="account-content-wrapper">
