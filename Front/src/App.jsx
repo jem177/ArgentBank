@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import EditName from "./components/EditName";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Error from "./pages/Error/index.jsx";
@@ -24,7 +23,7 @@ export default function App() {
           />
           <Route element={<SecurityRoutes />}>
             <Route path="/user" element={<User />} />
-            <Route path="/editUser" element={<EditName />} />
+            {/* <Route path="/editUser" element={<EditName />} /> */}
           </Route>
 
           <Route path="*" element={<Error />} />

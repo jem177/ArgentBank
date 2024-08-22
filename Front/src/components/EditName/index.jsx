@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { changeUsername } from "../../services/api";
 import { infoUserName } from "../../store/loginSlice";
 import Button from "../Button";
+import "./style.css";
 
-const EditName = () => {
-  const navigate = useNavigate();
+const EditNameModal = ({ isOpen, onClose }) => {
   const dispatch = useDispatch();
 
   const { userProfil, userToken } = useSelector((state) => state.login);
@@ -20,8 +19,6 @@ const EditName = () => {
 
   const handleChangeUserName = (e) => setNewUserName(e.target.value);
 
-  const handleCancel = () => navigate("/user");
-
   const handleForm = async (e) => {
     e.preventDefault();
     try {
@@ -29,7 +26,7 @@ const EditName = () => {
       if (response.status === 200) {
         dispatch(infoUserName(newUserName));
         console.log("Le nom d'utilisateur a bien été modifié.");
-        navigate("/user");
+        onClose();
       } else {
         console.error("La mise à jour du nom d'utilisateur a échoué.");
       }
@@ -38,9 +35,11 @@ const EditName = () => {
     }
   };
 
+  if (!isOpen) return null;
+
   return (
-    <main className="main bg-dark">
-      <section className="sign-in-content toggle-edit-name">
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Edit User Info</h1>
         <form onSubmit={handleForm}>
@@ -62,16 +61,18 @@ const EditName = () => {
             <label htmlFor="lastname">Last Name</label>
             <input type="text" id="lastname" disabled value={lastName} />
           </div>
-          <Button btnText="Save" className="sign-in-button" />
+          <div className="modal-buttons">
+            <Button
+              btnText="Cancel"
+              onClick={onClose}
+              className="edit-btn cancel-button"
+            />
+            <Button btnText="Save" className="edit-btn save-button" />
+          </div>
         </form>
-        <Button
-          btnText="Cancel"
-          onClick={handleCancel}
-          className="sign-in-button"
-        />
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 
-export default EditName;
+export default EditNameModal;

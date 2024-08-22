@@ -1,17 +1,15 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
+import EditNameModal from "../../components/EditName";
 import "./style.css";
 
 export default function User() {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const username = useSelector((state) => state.login.userProfil.userName);
-  const navigate = useNavigate();
 
-  // Gestion de l'affichage du formulaire pour modifier le username
-  const handleDisplayEdit = (e) => {
-    e.preventDefault();
-    navigate("/editUser");
-  };
+  const handleDisplayEdit = () => setIsEditModalOpen(true);
+  const handleCloseEditModal = () => setIsEditModalOpen(false);
 
   return (
     <>
@@ -20,7 +18,7 @@ export default function User() {
           <h1>
             Welcome back
             <br />
-            {username}!
+            {username} !
           </h1>
           <Button
             className="edit-button"
@@ -68,6 +66,10 @@ export default function User() {
             />
           </div>
         </section>
+        <EditNameModal
+          isOpen={isEditModalOpen}
+          onClose={handleCloseEditModal}
+        />
       </main>
     </>
   );
