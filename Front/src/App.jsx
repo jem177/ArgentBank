@@ -23,7 +23,6 @@ export default function App() {
           />
           <Route element={<SecurityRoutes />}>
             <Route path="/user" element={<User />} />
-            {/* <Route path="/editUser" element={<EditName />} /> */}
           </Route>
 
           <Route path="*" element={<Error />} />

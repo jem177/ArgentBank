@@ -10,6 +10,7 @@ const EditNameModal = ({ isOpen, onClose }) => {
 
   const { userProfil, userToken } = useSelector((state) => state.login);
   const { firstName, lastName, userName } = userProfil;
+  console.log({ firstName, lastName, userName });
 
   const [newUserName, setNewUserName] = useState(userName);
 

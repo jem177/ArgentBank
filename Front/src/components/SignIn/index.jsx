@@ -39,13 +39,14 @@ const SignInForm = () => {
         localStorage.setItem("token", token);
       }
 
-      const { body: userInfo } = await getUserProfile(token);
+      const userInfo = await getUserProfile(token);
       const userInfos = {
         email: userInfo.email,
         firstName: userInfo.firstName,
         lastName: userInfo.lastName,
         userName: userInfo.userName,
       };
+      console.log(userInfo);
 
       dispatch(infoUser(userInfos));
       navigate("/user");
