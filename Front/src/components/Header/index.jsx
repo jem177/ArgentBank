@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Navigation from "../Navigation";
 
-import logo from "/src/assets/img/argentBankLogo.png";
 import "./style.css";
+import logo from "/src/assets/img/argentBankLogo.png";
 
 export default function Header() {
   return (

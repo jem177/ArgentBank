@@ -15,7 +15,7 @@ const Navigation = () => {
   const userName = userProfil?.userName;
 
   return (
-    <>
+    <div className="navigation">
       {userName && (
         <Link to="/user" className="userName">
           <i className="fa fa-user-circle"></i>
@@ -32,7 +32,7 @@ const Navigation = () => {
           Sign In
         </NavLink>
       )}
-    </>
+    </div>
   );
 };
 
