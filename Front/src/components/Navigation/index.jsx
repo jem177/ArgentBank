@@ -23,7 +23,8 @@ const Navigation = () => {
         </Link>
       )}
       {token ? (
-        <NavLink className="main-nav-item" to="/" onClick={handleLogout}>
+        <NavLink className="main-nav-item " to="/" onClick={handleLogout}>
+          <i className="fa fa-sign-out"></i>
           Sign Out
         </NavLink>
       ) : (
