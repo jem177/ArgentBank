@@ -18,8 +18,11 @@ export async function getUserProfile(token) {
       Authorization: `Bearer ${token}`,
     },
   });
-  return response.json();
+  const data = await response.json();
+  console.log("Réponse de l'API pour getUserProfile:", data);
+  return data;
 }
+
 //
 export async function changeUsername(newUserName, token) {
   const response = await fetch("http://localhost:3001/api/v1/user/profile", {

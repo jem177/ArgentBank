@@ -46,7 +46,7 @@ paths:
       tags:
         - Transactions
       summary: Retrieve detailed information for a specific transaction
-      description: Get detailed information about a single transaction, including its category, amount, and associated notes.
+      description: Get detailed information about a single transaction, including its amount, date, category, notes, and transaction type.
       parameters:
         - in: path
           name: transactionId
@@ -59,7 +59,7 @@ paths:
         "200":
           description: Successfully retrieved transaction details
           schema:
-            $ref: "#/definitions/Transaction"
+            $ref: "#/definitions/TransactionDetails"
         "400":
           description: Invalid transaction ID
         "401":
@@ -75,7 +75,7 @@ paths:
       tags:
         - Transactions
       summary: Update category or notes for a specific transaction
-      description: Modify the `category` or `notes` of an existing transaction. Other fields cannot be updated.
+      description: Modify the `category` or `notes` of an existing transaction. The `transactionType` cannot be modified.
       parameters:
         - in: path
           name: transactionId
@@ -104,35 +104,6 @@ paths:
         "500":
           description: Internal Server Error
 
-    delete:
-      security:
-        - Bearer: []
-      tags:
-        - Transactions
-      summary: Delete specific details of a transaction
-      description: Delete information related to a transaction (e.g., notes), but the transaction itself remains intact.
-      parameters:
-        - in: path
-          name: transactionId
-          type: string
-          required: true
-          description: The ID of the transaction to update
-      produces:
-        - application/json
-      responses:
-        "200":
-          description: Successfully deleted transaction details
-          schema:
-            $ref: "#/definitions/ApiResponse"
-        "400":
-          description: Invalid transaction ID
-        "401":
-          description: Unauthorized access
-        "404":
-          description: Transaction not found
-        "500":
-          description: Internal Server Error
-
 definitions:
   TransactionGroup:
     type: object
@@ -153,7 +124,7 @@ definitions:
       - accountId
       - date
       - amount
-      - transactionType
+      - description
     properties:
       id:
         type: string
@@ -169,21 +140,48 @@ definitions:
         type: number
         format: float
         description: The amount of the transaction
-      currency:
-        type: string
-        description: The currency of the transaction (e.g., USD, EUR)
       description:
         type: string
         description: A brief description of the transaction
+
+  TransactionDetails:
+    type: object
+    required:
+      - id
+      - accountId
+      - date
+      - amount
+      - transactionType
+      - description
+      - category
+      - notes
+    properties:
+      id:
+        type: string
+        description: Unique identifier for the transaction
+      accountId:
+        type: string
+        description: The ID of the account associated with the transaction
+      date:
+        type: string
+        format: date
+        description: The date when the transaction occurred
+      amount:
+        type: number
+        format: float
+        description: The amount of the transaction
+      description:
+        type: string
+        description: A brief description of the transaction
+      transactionType:
+        type: string
+        description: The type of the transaction (e.g., "Debit", "Credit")
       category:
         type: string
         description: The category of the transaction (e.g., "Food", "Transport")
       notes:
         type: string
         description: Additional notes related to the transaction
-      transactionType:
-        type: string
-        description: The type of the transaction (e.g., "Debit", "Credit")
 
   TransactionUpdate:
     type: object

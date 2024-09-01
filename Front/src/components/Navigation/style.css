@@ -25,7 +25,6 @@
 
 .userName {
   display: flex;
-  flex-direction: row-reverse;
   align-items: center;
   text-decoration: none;
   margin-right: 10px;

@@ -6,7 +6,8 @@ import "./style.css";
 
 export default function User() {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const username = useSelector((state) => state.login.userProfil.userName);
+  const firstName = useSelector((state) => state.login.userProfil.firstName);
+  const lastName = useSelector((state) => state.login.userProfil.lastName);
 
   const handleDisplayEdit = () => setIsEditModalOpen(true);
   const handleCloseEditModal = () => setIsEditModalOpen(false);
@@ -18,7 +19,7 @@ export default function User() {
           <h1>
             Welcome back
             <br />
-            {username} !
+            {firstName} {lastName} !
           </h1>
           <Button
             className="edit-button"
