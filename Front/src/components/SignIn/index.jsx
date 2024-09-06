@@ -41,10 +41,10 @@ const SignInForm = () => {
 
       const userInfo = await getUserProfile(token);
       const userInfos = {
-        email: userInfo.email,
-        firstName: userInfo.firstName,
-        lastName: userInfo.lastName,
-        userName: userInfo.userName,
+        email: userInfo.body.email,
+        firstName: userInfo.body.firstName,
+        lastName: userInfo.body.lastName,
+        userName: userInfo.body.userName,
       };
       console.log(userInfo);
 
