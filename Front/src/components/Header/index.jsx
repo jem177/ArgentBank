@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Navigation from "../Navigation";
 
 import "./style.css";
-import logo from "/src/assets/img/argentBankLogo.png";
+import logo from "/src/assets/img/argentBankLogo.webp";
 
 export default function Header() {
   return (
